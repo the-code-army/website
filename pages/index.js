@@ -1,203 +1,286 @@
-import Head from 'next/head'
+import Head from "next/head";
+import StaffMember from "../components/StaffMember";
 
-const Home = () => (
-  <div className="container">
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+const Home = () => {
+  let staff = [
+    // Andrewk
+    {
+      name: "andrewk",
+      id: "502171514456768512",
+      title: "Sudoer",
+    },
+    // Person
+    {
+      id: "327951227629600768",
+      title: "Sudoer",
+    },
+    // Vintastic
+    {
+      id: "569880218081427476",
+      title: "Sudoer",
+    },
+    // Citadel
+    {
+      id: "648758496317276162",
+      title: "head mod",
+      name: "Citadel",
+    },
+    // Zamboni
+    {
+      id: "140697253261213696",
+      title: "moderator",
+    },
+    // Myrtle Beach
+    {
+      id: "464169397397749761",
+      title: "moderator",
+    },
+    // MrLava
+    {
+      id: "427621308252160000",
+      title: "moderator",
+    },
+    // Avigte (TheImmortalWarrior)
+    {
+      id: "535518426194640906",
+      title: "moderator",
+      name: "avigte",
+    },
+    // VexGaming
+    {
+      id: "188880497122738186",
+      title: "moderator",
+      name: "VexGaming",
+    },
+    // DonutX3
+    {
+      id: "197442032455647232",
+      title: "moderator",
+    },
+    // AstroOrbis
+    {
+      id: "516741924225417217",
+      title: "mod in training",
+      name: "AstroOrbis",
+    },
+  ];
+  return (
+    <div className="container">
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <title>Code Army</title>
+      </Head>
 
-    <main>
-      <h1 className="title">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+      <main>
+        <section className="hero">
+          <h1 className="title">Code Army</h1>
+          <h2 className="subtitle">
+            A discord server for programming help and advisory
+          </h2>
 
-      <p className="description">
-        Get started by editing <code>pages/index.js</code>
-      </p>
+          <div className="button-grid">
+            <button className="btn bg-black">
+              <a
+                className="no-a"
+                href="https://discord.gg/SSJkBGy"
+                target="_blank"
+              >
+                Join us
+              </a>
+            </button>
+            <button className="btn bg-white">
+              <a className="no-a" href="#staff">
+                Learn more
+              </a>
+            </button>
+          </div>
+        </section>
+        <section>
+          <h2 className="section-header" id="staff">
+            Staff
+          </h2>
+          <div className="staff-grid">
+            {staff.map(({id, name, title}, i) => (
+                <StaffMember id={id} name={name} title={title} key={i}/>
+              ))}
+          </div>
+        </section>
+        <section>
+          <h2 className="section-header" id="projects">
+            Server Projects
+          </h2>
+          <ul>
+            <li>This website (WIP)</li>
+          </ul>
+        </section>
+        <footer className="bg-black">
+          <h2 className="section-header">Code Army</h2>
+          <h3>Links:</h3>
+          <ul>
+            <li>
+              <a href="https://discord.gg/SSJkBGy">Join the server</a>
+            </li>
+            <li>
+              <a href="mailto://codearmy@protonmail.com">Email us</a>
+            </li>
+            <li>
+              <a href="https://github.com/the-code-army">Our GitHub</a>
+            </li>
+          </ul>
+        </footer>
+      </main>
 
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
-          </p>
-        </a>
-      </div>
-    </main>
-
-    <footer>
-      <a
-        href="https://zeit.co?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-      </a>
-    </footer>
-
-    <style jsx>{`
-      .container {
-        min-height: 100vh;
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      main {
-        padding: 5rem 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      footer {
-        width: 100%;
-        height: 100px;
-        border-top: 1px solid #eaeaea;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      footer img {
-        margin-left: 0.5rem;
-      }
-
-      footer a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .title a {
-        color: #0070f3;
-        text-decoration: none;
-      }
-
-      .title a:hover,
-      .title a:focus,
-      .title a:active {
-        text-decoration: underline;
-      }
-
-      .title {
-        margin: 0;
-        line-height: 1.15;
-        font-size: 4rem;
-      }
-
-      .title,
-      .description {
-        text-align: center;
-      }
-
-      .description {
-        line-height: 1.5;
-        font-size: 1.5rem;
-      }
-
-      code {
-        background: #fafafa;
-        border-radius: 5px;
-        padding: 0.75rem;
-        font-size: 1.1rem;
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-
-      .grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        max-width: 800px;
-        margin-top: 3rem;
-      }
-
-      .card {
-        margin: 1rem;
-        flex-basis: 45%;
-        padding: 1.5rem;
-        text-align: left;
-        color: inherit;
-        text-decoration: none;
-        border: 1px solid #eaeaea;
-        border-radius: 10px;
-        transition: color 0.15s ease, border-color 0.15s ease;
-      }
-
-      .card:hover,
-      .card:focus,
-      .card:active {
-        color: #0070f3;
-        border-color: #0070f3;
-      }
-
-      .card h3 {
-        margin: 0 0 1rem 0;
-        font-size: 1.5rem;
-      }
-
-      .card p {
-        margin: 0;
-        font-size: 1.25rem;
-        line-height: 1.5;
-      }
-
-      @media (max-width: 600px) {
-        .grid {
-          width: 100%;
-          flex-direction: column;
+      <style jsx global>{`
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+          font-family: Metropolis, sans-serif;
+          margin: 0;
+          padding: 0;
         }
-      }
-    `}</style>
 
-    <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      }
+        :root {
+          --clr-primary: #1187fc;
+          --clr-dark: #333;
+          --clr-light: #fff;
+          --clr-body: #202020;
 
-      * {
-        box-sizing: border-box;
-      }
-    `}</style>
-  </div>
-)
+          --super-dark: #101010;
+          --yellow: #eec643;
+          --blue: #0d21a1;
 
-export default Home
+          scroll-behavior: smooth;
+        }
+
+        body {
+          min-height: 100vh;
+          font-size: 1.125em;
+          line-height: 1.6;
+          color: var(--clr-body);
+          background: var(--clr-light);
+          overflow-x: hidden;
+        }
+        main {
+          width: 100vw;
+          height: 100vh;
+        }
+      `}</style>
+      <style jsx>{`
+        .title {
+          font-size: 3rem;
+        }
+
+        .subtitle {
+          font-size: 1.5rem;
+          opacity: 0.75;
+          font-weight: 600;
+        }
+
+        .hero {
+          background: var(--blue);
+          padding: 3rem 1rem;
+          color: var(--clr-light);
+          display: grid;
+          gap: 1rem;
+        }
+
+        section,
+        footer {
+          padding: 2rem 1rem;
+        }
+
+        .button-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          width: initial;
+          justify-items: start;
+          max-width: 300px;
+        }
+
+        .btn {
+          padding: 0.5rem 1.25rem;
+          border: none;
+          font-weight: 600;
+        }
+
+        .bg-black {
+          color: var(--clr-light);
+          background: var(--super-dark);
+        }
+
+        .bg-white {
+          color: var(--clr-body);
+          background: var(--clr-light);
+        }
+
+        .no-a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .section-header {
+          font-size: 2rem;
+        }
+        .staff-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1rem;
+        }
+
+        @media (min-width: 400px) {
+          .subtitle {
+            font-size: 2rem;
+          }
+        }
+
+        @media (min-width: 900px) {
+          .title {
+            font-size: 5rem;
+          }
+
+          .subtitle {
+            font-size: 3rem;
+          }
+
+          .hero {
+            padding: 5rem 3rem;
+          }
+
+          section,
+          footer {
+            padding: 3rem;
+          }
+
+          .btn {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+          }
+
+          .button-grid {
+            max-width: 500px;
+          }
+
+          .section-header {
+            font-size: 3.5rem;
+          }
+        }
+
+        @media (min-width: 1400px) {
+          .hero {
+            padding: 5rem 10rem;
+          }
+
+          section,
+          footer {
+            padding: 3rem 10rem;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Home;
