@@ -102,9 +102,9 @@ const Home = () => {
             Staff
           </h2>
           <div className="staff-grid">
-            {staff.map(({id, name, title}, i) => (
-                <StaffMember id={id} name={name} title={title} key={i}/>
-              ))}
+            {staff.map(({ id, name, title }, i) => (
+              <StaffMember id={id} name={name} title={title} key={i} />
+            ))}
           </div>
         </section>
         <section>
@@ -133,6 +133,52 @@ const Home = () => {
       </main>
 
       <style jsx global>{`
+        @font-face {
+          font-family: "Metropolis";
+          font-weight: 900;
+          src: url("/fonts/Metropolis-Black.ttf");
+          font-style: normal;
+          font-display: fallback;
+        }
+
+        @font-face {
+          font-family: "Metropolis";
+          font-weight: 800;
+          src: url("/fonts/Metropolis-ExtraBold.ttf");
+          font-display: fallback;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: "Metropolis";
+          font-weight: 700;
+          src: url("/fonts/Metropolis-Bold.ttf");
+          font-display: fallback;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: "Metropolis";
+          font-weight: 600;
+          src: url("/fonts/Metropolis-SemiBold.ttf");
+          font-display: fallback;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: "Metropolis";
+          font-weight: 500;
+          src: url("/fonts/Metropolis-Medium.ttf");
+          font-display: fallback;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "Metropolis";
+          font-weight: 400;
+          src: url("/fonts/Metropolis-Regular.ttf");
+          font-display: fallback;
+          font-style: normal;
+        }
         *,
         *::before,
         *::after {
