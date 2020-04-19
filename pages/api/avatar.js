@@ -5,8 +5,7 @@ export default async function(req, res) {
 
 	try
 	{
-		const buffer = await getAvatar(id)
-
+		const buffer = await getAvatar(id)  // not inline so status isn't set immediately
 		res.status(200).send(buffer)
 	}
 	catch (error)
@@ -30,10 +29,10 @@ async function getAvatar(id)
 {
 	if (!id)
 	{
-		throw new TypeError(`"id" is not a non-null object`)
+		throw new TypeError('"id" is not a non-null object')
 	}
 
-	let result = await fetch(`https://discordapp.com/api/users/${id}`, {
+	const result = await fetch(`https://discordapp.com/api/users/${id}`, {
 		headers: {
 			'Authorization': `Bot ${process.env.TOKEN}`
 		}
@@ -42,7 +41,7 @@ async function getAvatar(id)
 	if (!result.ok)
 	{
 		const err = new Error("Discord API failure")
-		err.code = result.status
+		err.code = result.status  /// TODO: use custom HTTPError for passing status instead of abusing error.code
 
 		throw err
 	}
