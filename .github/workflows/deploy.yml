@@ -1,0 +1,27 @@
+# file ./softwareengineering/.github/workflow/deploy.yml
+
+name: 'Deploy master branch'
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy_website:
+    name: 'deploy website'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'Installing now cli'
+      run: npm install -g now
+    - name: 'Installing dependencies'
+      run: 'npm ci'
+    - name: 'Deploying to now'
+      run: 'now'
+        # gitbook install
+        # gitbook build
+    
