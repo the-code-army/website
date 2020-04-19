@@ -16,10 +16,10 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: 'Installing now cli'
-      run: npm install -g now
     - name: 'Installing dependencies'
       run: 'npm ci'
+    - name: 'Installing now cli'
+      run: npm install -g now
     - name: 'Deploying to now'
       run: 'now'
         # gitbook install
