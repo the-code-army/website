@@ -1,0 +1,31 @@
+# file ./softwareengineering/.github/workflow/deploy.yml
+
+name: 'Deploy development branch'
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  Setup_site:
+    name: 'Install dependencies'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'Installing dependencies'
+      run: 'npm ci'
+  Deploy_site:
+    name: 'Deploy site'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: amondnet/now-deployment@v2
+      with: 
+        zeit-token: ${{ secrets.TOKEN }}
+        now-org-id: ${{ secrets.ORG_ID }}
+        now-project-id: ${{ secrets.PROJECT_ID}}
+        working-directory: ./
