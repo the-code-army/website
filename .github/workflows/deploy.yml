@@ -19,4 +19,6 @@ jobs:
     - name: 'Installing dependencies'
       run: 'npm ci'
     - name: 'Deploying to now'
-      run: 'now'
+      env: 
+        TOKEN: ${{ secrets.TOKEN }}
+      run: 'now --token $TOKEN'
