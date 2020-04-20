@@ -11,11 +11,13 @@ const Home = () => {
     },
     // Person
     {
+      name: "Person",
       id: "327951227629600768",
       title: "Sudoer",
     },
     // Vintastic
     {
+      name:"vintastic7",
       id: "569880218081427476",
       title: "Sudoer",
     },
@@ -27,16 +29,19 @@ const Home = () => {
     },
     // Zamboni
     {
+      name: "zamboni",
       id: "140697253261213696",
       title: "moderator",
     },
     // Myrtle Beach
     {
+      name: "Myrtle_Beach",
       id: "464169397397749761",
       title: "moderator",
     },
     // MrLava
     {
+      name: "MrLava13",
       id: "427621308252160000",
       title: "moderator",
     },
@@ -56,6 +61,7 @@ const Home = () => {
     {
       id: "197442032455647232",
       title: "moderator",
+      name: "donutX3",
     },
     // AstroOrbis
     {
