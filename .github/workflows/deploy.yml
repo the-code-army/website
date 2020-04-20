@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  Setup site:
+  Setup_site:
     name: 'Install dependencies'
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +18,7 @@ jobs:
         node-version: '10.x'
     - name: 'Installing dependencies'
       run: 'npm ci'
-  Deploy site:
+  Deploy_site:
     name: 'Deploy site'
     runs-on: ubuntu-latest
     steps:
