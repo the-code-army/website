@@ -19,6 +19,8 @@ jobs:
     - name: 'Installing dependencies'
       run: 'npm ci'
     - name: 'Deploying to now'
-      env: 
-        TOKEN: ${{ secrets.TOKEN }}
-      run: 'now --token $TOKEN'
+      uses: artemis-tech/zeit-now-cli@v1
+      env:
+          ZEIT_TOKEN: ${{ secrets.TOKEN }}
+      with:
+          args:  --prod
